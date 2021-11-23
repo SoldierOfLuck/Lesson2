@@ -1,12 +1,15 @@
 package ru.lukmanov.homework;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.text.DecimalFormat;
-
 
 public class MainActivity extends AppCompatActivity {
     private TextView text;
@@ -14,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private static final char SUBTRACTION = '-';
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
+    private static final char PERCENT = '%';
     private DecimalFormat decimalFormat;
-    boolean f=false;
+    boolean flag_DOT=false;
     private char CURRENT_ACTION;
     private double valueOne = Double.NaN;
     private double valueTwo;
@@ -53,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         buttonDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!f){
+                if (flag_DOT==false){
                     text.setText(text.getText() + ".");
-                    f=true;
+                    flag_DOT=true;
                 } else text.setText(text.getText());
             }
         });
@@ -128,10 +132,9 @@ public class MainActivity extends AppCompatActivity {
                 CURRENT_ACTION = ADDITION;
                 text.setText(decimalFormat.format(valueOne) + "+");
                 text.setText(null);
-                f=false;
+                flag_DOT=false;
             }
         });
-
         buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 CURRENT_ACTION = SUBTRACTION;
                 text.setText(decimalFormat.format(valueOne) + "-");
                 text.setText(null);
-                f=false;
+                flag_DOT=false;
             }
         });
 
@@ -150,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 CURRENT_ACTION = MULTIPLICATION;
                 text.setText(decimalFormat.format(valueOne) + "*");
                 text.setText(null);
-                f=false;
+                flag_DOT=false;
             }
         });
 
@@ -161,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 CURRENT_ACTION = DIVISION;
                 text.setText(decimalFormat.format(valueOne) + "/");
                 text.setText(null);
-                f=false;
+                flag_DOT=false;
             }
         });
 
@@ -179,20 +182,27 @@ public class MainActivity extends AppCompatActivity {
         if(!Double.isNaN(valueOne)) {
             valueTwo = Double.parseDouble(text.getText().toString());
             text.setText(null);
-            if(CURRENT_ACTION == ADDITION)
-                valueOne = this.valueOne + valueTwo;
-            else if(CURRENT_ACTION == SUBTRACTION)
-                valueOne = this.valueOne - valueTwo;
-            else if(CURRENT_ACTION == MULTIPLICATION)
-                valueOne = this.valueOne * valueTwo;
-            else if(CURRENT_ACTION == DIVISION)
-                valueOne = this.valueOne / valueTwo;
+            switch (CURRENT_ACTION) {
+                case  (ADDITION):
+                    valueOne = this.valueOne + valueTwo;
+                    break;
+                case (SUBTRACTION):
+                    valueOne = this.valueOne - valueTwo;
+                    break;
+                case (MULTIPLICATION):
+                    valueOne = this.valueOne * valueTwo;
+                    break;
+                case (DIVISION):
+                    valueOne = this.valueOne / valueTwo;
+                    break;}
         }
         else {
             try {
                 valueOne = Double.parseDouble(text.getText().toString());
             }
-            catch (Exception e){}
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 }

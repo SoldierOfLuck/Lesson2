@@ -9,11 +9,4 @@
         layout="@layout/new_table_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.3" />
-
 </FrameLayout>
