@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
                 flag_DOT=false;
             }
         });
-
         buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
