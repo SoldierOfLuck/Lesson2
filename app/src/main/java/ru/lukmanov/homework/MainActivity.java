@@ -14,13 +14,11 @@ public class MainActivity extends AppCompatActivity {
     private static final char SUBTRACTION = '-';
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
-
     private DecimalFormat decimalFormat;
     boolean f=false;
     private char CURRENT_ACTION;
     private double valueOne = Double.NaN;
     private double valueTwo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMultiply = findViewById(R.id.button_multiply);
         Button buttonDivide = findViewById(R.id.button_split);
         Button buttonEqual = findViewById(R.id.button_ravno);
-
         buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (f==false){
+                if (!f){
                     text.setText(text.getText() + ".");
                     f=true;
                 } else text.setText(text.getText());
@@ -182,8 +179,6 @@ public class MainActivity extends AppCompatActivity {
         if(!Double.isNaN(valueOne)) {
             valueTwo = Double.parseDouble(text.getText().toString());
             text.setText(null);
-
-
             if(CURRENT_ACTION == ADDITION)
                 valueOne = this.valueOne + valueTwo;
             else if(CURRENT_ACTION == SUBTRACTION)
@@ -192,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
                 valueOne = this.valueOne * valueTwo;
             else if(CURRENT_ACTION == DIVISION)
                 valueOne = this.valueOne / valueTwo;
-
         }
         else {
             try {
