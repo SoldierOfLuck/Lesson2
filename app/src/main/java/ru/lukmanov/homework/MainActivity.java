@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private char CURRENT_ACTION;
     private double valueOne = Double.NaN;
     private double valueTwo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMultiply = findViewById(R.id.button_multiply);
         Button buttonDivide = findViewById(R.id.button_split);
         Button buttonEqual = findViewById(R.id.button_ravno);
-
         buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
