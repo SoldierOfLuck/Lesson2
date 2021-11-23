@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Калькулятор</string>
     <string name="_2">2</string>
     <string name="_1">1</string>
     <string name="_3">3</string>
@@ -20,10 +21,10 @@
     <string name="_multiply">x</string>
     <string name="_split">/</string>
     <string name="_ravno">=</string>
-    <string name="CalcStyleMain">Regular Style</string>
-    <string name="material_light">Material light</string>
-    <string name="material_light_action_bar_dark">Material light action bar dark</string>
-    <string name="material_dark">Material dark</string>
-    <string name="Settings">Settings</string>
-    <string name="Back">Back</string>
+    <string name="CalcStyleMain">Обычный стиль</string>
+    <string name="material_light">Яркие материалы</string>
+    <string name="material_light_action_bar_dark">Светлый с темной полосой</string>
+    <string name="material_dark">Темные материалы</string>
+    <string name="Settings">Настройки</string>
+    <string name="Back">Назад</string>
 </resources>
